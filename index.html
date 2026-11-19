@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foodies Café — Menu | Eat Fresh &amp; Healthy</title>
+<meta name="description" content="Foodies Café menu — Pizza is our Specialty. Starters, Burgers, Rolls, Pizza Flavours, Deals, Shakes & Drinks. Home delivery in Khanpur & Rahim Yar Khan.">
+<style>
+  :root{
+    --red:#a31621; --red-dark:#7f1219; --cream:#fff9f1; --cream2:#fdf1e3;
+    --ink:#2b2118; --muted:#7a6a5c; --gold:#f5b301; --gold-dark:#d99a00;
+    --line:#ecd9c3; --card:#ffffff; --green:#1e7d32;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream);color:var(--ink);line-height:1.5;-webkit-text-size-adjust:100%}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px 120px}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    background:linear-gradient(160deg,#8f1219 0%,#a31621 55%,#c22730 100%);
+    color:#fff;text-align:center;padding:38px 20px 30px;
+    border-radius:0 0 28px 28px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(420px 180px at 50% -40px,rgba(255,255,255,.22),transparent 70%)}
+  .logo-mark{font-size:44px;line-height:1}
+  .brand{font-family:"Snell Roundhand","Brush Script MT","Segoe Script",cursive;
+    font-size:clamp(44px,11vw,64px);line-height:1.05;font-weight:700;margin-top:4px}
+  .tagline{color:#ffd9a8;letter-spacing:.28em;text-transform:uppercase;
+    font-size:12px;font-weight:700;margin-top:10px}
+  .specialty{display:inline-block;margin-top:14px;background:var(--gold);color:#3a2503;
+    font-weight:800;font-size:14px;padding:7px 16px;border-radius:999px;
+    box-shadow:0 3px 0 rgba(0,0,0,.18)}
+  .hero p.sub{color:#ffe9d6;font-size:14px;margin-top:12px}
+
+  /* ---------- Sticky nav ---------- */
+  nav.cats{position:sticky;top:0;z-index:20;background:rgba(255,249,241,.96);
+    backdrop-filter:blur(6px);padding:10px 0;border-bottom:1px solid var(--line)}
+  nav.cats .row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+    padding:2px 16px;max-width:760px;margin:0 auto}
+  nav.cats .row::-webkit-scrollbar{display:none}
+  nav.cats a{flex:0 0 auto;text-decoration:none;font-size:13px;font-weight:700;
+    color:var(--red);border:1.5px solid var(--red);border-radius:999px;padding:6px 13px;
+    background:#fff}
+  nav.cats a.active,nav.cats a:active{background:var(--red);color:#fff}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:baseline;gap:10px;border-bottom:3px solid var(--red);
+    padding-bottom:8px;margin-bottom:6px}
+  .sec-head h2{font-family:Georgia,"Times New Roman",serif;font-size:26px;color:var(--red-dark)}
+  .sec-head span{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .sub-head{font-family:Georgia,serif;font-size:19px;color:var(--red);margin:20px 0 2px}
+  .size-row{display:flex;justify-content:flex-end;gap:0;font-size:11px;font-weight:800;
+    color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding:6px 2px 0}
+  .size-row b{width:64px;text-align:right}
+  .size-row b:first-child{width:64px}
+
+  .item{display:flex;align-items:baseline;gap:8px;padding:11px 2px;border-bottom:1px dashed var(--line)}
+  .item:last-child{border-bottom:none}
+  .item .nm{font-weight:600;font-size:16px}
+  .item .dots{flex:1;border-bottom:2px dotted #d8c3a8;transform:translateY(-3px);min-width:14px}
+  .item .pr{font-weight:800;font-size:16px;white-space:nowrap;color:var(--red-dark)}
+  .item .pr small{font-size:11px;color:var(--muted);font-weight:700}
+  .prices{display:flex;gap:0}
+  .prices .pr{width:64px;text-align:right}
+  .prices .pr.na{color:#c4b6a6;font-weight:600}
+
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+  /* ---------- Deals ---------- */
+  .deals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media (max-width:520px){.deals{grid-template-columns:1fr}}
+  .deal{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:16px;position:relative;box-shadow:0 2px 8px rgba(120,60,20,.06)}
+  .deal h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .deal ul{list-style:none;margin:8px 0 12px}
+  .deal li{font-size:15px;font-weight:600;padding:2px 0}
+  .deal li::before{content:"• ";color:var(--red)}
+  .deal .price{display:inline-block;background:#111;color:var(--gold);font-weight:800;
+    font-size:19px;padding:5px 14px;border-radius:8px;transform:rotate(-2deg)}
+  .deal .price.alt{background:#fff;color:var(--red-dark);border:2px solid var(--red);transform:rotate(1.5deg)}
+  .deal .price small{font-size:12px;color:#e8c96a;font-weight:700}
+  .deal .price.alt small{color:var(--muted)}
+  .deal .split{font-size:11px;color:var(--muted);margin-top:8px}
+
+  /* ---------- Drinks ---------- */
+  .bev h3{font-family:Georgia,serif;font-size:19px;color:var(--red);margin:18px 0 2px}
+
+  /* ---------- Footer / branches ---------- */
+  footer.branches{margin-top:40px;background:#2b2118;color:#f5e9d8;border-radius:20px;padding:24px 20px}
+  footer.branches h2{font-family:Georgia,serif;font-size:22px;color:#ffd9a8;margin-bottom:14px}
+  .branch{margin-bottom:16px}
+  .branch:last-child{margin-bottom:0}
+  .branch h3{color:#fff;font-size:16px}
+  .branch p{font-size:14px;color:#d9c8b4;margin-top:2px}
+  .branch .phones{margin-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+  .branch .phones a{display:inline-block;background:var(--red);color:#fff;text-decoration:none;
+    font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
+  .branch .phones a:hover{background:#c22730}
+  .fine{font-size:12px;color:#a08b74;text-align:center;margin-top:18px}
+
+  /* ---------- Sticky call button ---------- */
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:rgba(255,249,241,.97);border-top:1px solid var(--line);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .callbar .in{max-width:760px;margin:0 auto;display:flex;gap:10px;align-items:center}
+  .callbar a.call{flex:1;text-align:center;background:var(--green);color:#fff;text-decoration:none;
+    font-weight:800;font-size:17px;padding:13px;border-radius:12px}
+  .callbar a.wa{flex:0 0 auto;text-align:center;background:#25d366;color:#fff;text-decoration:none;
+    font-weight:800;font-size:15px;padding:13px 18px;border-radius:12px}
+  @media print{
+    nav.cats,.callbar{display:none}
+    .wrap{padding-bottom:0}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="logo-mark">🍕</div>
+    <div class="brand">Foodies Café</div>
+    <div class="tagline">Eat Fresh &amp; Healthy</div>
+    <div><span class="specialty">Pizza is our Specialty</span></div>
+    <p class="sub">For Home Delivery — Khanpur &amp; Rahim Yar Khan</p>
+  </header>
+
+  <nav class="cats" id="cats">
+    <div class="row">
+      <a href="#starters">Starters</a>
+      <a href="#burgers">Burgers</a>
+      <a href="#rolls">Rolls</a>
+      <a href="#pizza">Pizza</a>
+      <a href="#deals">Deals</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- STARTERS -->
+  <section id="starters">
+    <div class="sec-head"><h2>Starters</h2><span>Fresh &amp; Crispy</span></div>
+    <div class="size-row"><b>Reg.</b><b>Large</b></div>
+    <div class="item"><span class="nm">French Fries</span><span class="dots"></span><span class="prices"><span class="pr">200</span><span class="pr">400</span></span></div>
+    <div class="item"><span class="nm">Chicken Pops</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">1000</span></span></div>
+    <div class="item"><span class="nm">Chicken Strips</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">1000</span></span></div>
+    <div class="item"><span class="nm">Cheese Balls</span><span class="dots"></span><span class="prices"><span class="pr na">—</span><span class="pr">500</span></span></div>
+    <div class="item"><span class="nm">Mayo Fries</span><span class="dots"></span><span class="prices"><span class="pr na">—</span><span class="pr">300</span></span></div>
+    <div class="item"><span class="nm">Pizza Fries</span><span class="dots"></span><span class="prices"><span class="pr na">—</span><span class="pr">500</span></span></div>
+  </section>
+
+  <!-- BURGERS -->
+  <section id="burgers">
+    <div class="sec-head"><h2>Burgers</h2><span>Juicy &amp; Loaded</span></div>
+    <div class="item"><span class="nm">Zinger Burger</span><span class="dots"></span><span class="pr">350</span></div>
+    <div class="item"><span class="nm">Special Zinger</span><span class="dots"></span><span class="pr">400</span></div>
+    <div class="item"><span class="nm">Chicken Burger</span><span class="dots"></span><span class="pr">300</span></div>
+    <div class="item"><span class="nm">Tower Burger</span><span class="dots"></span><span class="pr">500</span></div>
+    <div class="item"><span class="nm">Heavy Burger</span><span class="dots"></span><span class="pr">550</span></div>
+  </section>
+
+  <!-- ROLLS -->
+  <section id="rolls">
+    <div class="sec-head"><h2>Rolls</h2><span>Wrapped Fresh</span></div>
+    <div class="item"><span class="nm">Chick Roll</span><span class="dots"></span><span class="pr">280</span></div>
+    <div class="item"><span class="nm">Kabab Roll</span><span class="dots"></span><span class="pr">280</span></div>
+    <div class="item"><span class="nm">Zinger Roll</span><span class="dots"></span><span class="pr">350</span></div>
+    <div class="item"><span class="nm">Chick Shawarma</span><span class="dots"></span><span class="pr">200</span></div>
+    <div class="item"><span class="nm">Zinger Shawarma</span><span class="dots"></span><span class="pr">270</span></div>
+  </section>
+
+  <!-- PIZZA -->
+  <section id="pizza">
+    <div class="sec-head"><h2>Pizza Flavours</h2><span>Our Specialty</span></div>
+
+    <h3 class="sub-head">Super Special</h3>
+    <div class="size-row"><b>M</b><b>L</b></div>
+    <div class="item"><span class="nm">Super Special Pizza</span><span class="dots"></span><span class="prices"><span class="pr">1300</span><span class="pr">1600</span></span></div>
+    <div class="item"><span class="nm">Super Cheezious Pizza</span><span class="dots"></span><span class="prices"><span class="pr">1300</span><span class="pr">1600</span></span></div>
+    <div class="item"><span class="nm">Super Crunch Pizza</span><span class="dots"></span><span class="prices"><span class="pr">1300</span><span class="pr">1600</span></span></div>
+    <div class="item"><span class="nm">Kababish Crust Pizza</span><span class="dots"></span><span class="prices"><span class="pr">1300</span><span class="pr">1600</span></span></div>
+
+    <h3 class="sub-head">Special Flavours</h3>
+    <div class="size-row"><b>S</b><b>M</b><b>L</b></div>
+    <div class="item"><span class="nm">Foodies Special</span><span class="dots"></span><span class="prices"><span class="pr">550</span><span class="pr">1000</span><span class="pr">1450</span></span></div>
+    <div class="item"><span class="nm">Creamy Kababish</span><span class="dots"></span><span class="prices"><span class="pr">550</span><span class="pr">1000</span><span class="pr">1450</span></span></div>
+    <div class="item"><span class="nm">Kabab Crust</span><span class="dots"></span><span class="prices"><span class="pr">550</span><span class="pr">1000</span><span class="pr">1450</span></span></div>
+    <div class="item"><span class="nm">Kabab Crown</span><span class="dots"></span><span class="prices"><span class="pr">550</span><span class="pr">1000</span><span class="pr">1450</span></span></div>
+    <div class="item"><span class="nm">Baby Pizza</span><span class="dots"></span><span class="prices"><span class="pr">550</span><span class="pr">1000</span><span class="pr">1450</span></span></div>
+
+    <h3 class="sub-head">Regular Pizza</h3>
+    <div class="size-row"><b>S</b><b>M</b><b>L</b></div>
+    <div class="item"><span class="nm">Fajita</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">900</span><span class="pr">1200</span></span></div>
+    <div class="item"><span class="nm">Tikka</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">900</span><span class="pr">1200</span></span></div>
+    <div class="item"><span class="nm">Hot &amp; Spicy</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">900</span><span class="pr">1200</span></span></div>
+    <div class="item"><span class="nm">B.B.Q</span><span class="dots"></span><span class="prices"><span class="pr">500</span><span class="pr">900</span><span class="pr">1200</span></span></div>
+  </section>
+
+  <!-- DEALS -->
+  <section id="deals">
+    <div class="sec-head"><h2>Deals</h2><span>Best Value</span></div>
+    <div class="deals">
+      <div class="deal"><h3>Deal — 1</h3>
+        <ul><li>1 Zinger Burger</li><li>1 Reg. Drink</li></ul>
+        <span class="price">Rs. 450</span></div>
+      <div class="deal"><h3>Deal — 2</h3>
+        <ul><li>1 Zinger Burger</li><li>1 Reg. Fries</li><li>1 Reg. Drink</li></ul>
+        <span class="price">Rs. 630</span></div>
+      <div class="deal"><h3>Deal — 3</h3>
+        <ul><li>4 Zinger Burger</li><li>1.5 Ltr. Drink</li></ul>
+        <span class="price">Rs. 1499</span></div>
+      <div class="deal"><h3>Deal — 4</h3>
+        <ul><li>10 Crispy Wings</li><li>1 Reg. Drink</li></ul>
+        <span class="price">Rs. 550</span></div>
+      <div class="deal"><h3>Deal — 5</h3>
+        <ul><li>20 Crispy Wings</li><li>1 Ltr. Drink</li></ul>
+        <span class="price">Rs. 1049</span></div>
+      <div class="deal"><h3>Deal — 6</h3>
+        <ul><li>1 Small Pizza</li><li>500ml. Drink</li></ul>
+        <span class="price">Rs. 590</span> <span class="price alt">Rs. 640</span>
+        <div class="split">Regular / Special</div></div>
+      <div class="deal"><h3>Deal — 7</h3>
+        <ul><li>1 Medium Pizza</li><li>1 Ltr. Drink</li></ul>
+        <span class="price">Rs. 999</span> <span class="price alt">Rs. 1099</span>
+        <div class="split">Regular / Special</div></div>
+      <div class="deal"><h3>Deal — 8</h3>
+        <ul><li>1 Large Pizza</li><li>1.5 Ltr. Drink</li></ul>
+        <span class="price">Rs. 1349</span> <span class="price alt">Rs. 1549</span>
+        <div class="split">Regular / Special</div></div>
+    </div>
+  </section>
+
+  <!-- DRINKS -->
+  <section id="drinks" class="bev">
+    <div class="sec-head"><h2>Drink &amp; Beverages</h2><span>Chilled &amp; Fresh</span></div>
+
+    <h3>Shakes</h3>
+    <div class="item"><span class="nm">Dry Fruit Shake</span><span class="dots"></span><span class="pr">400</span></div>
+    <div class="item"><span class="nm">Date Shake</span><span class="dots"></span><span class="pr">400</span></div>
+    <div class="item"><span class="nm">Ice Cream Shake</span><span class="dots"></span><span class="pr">400</span></div>
+    <div class="item"><span class="nm">Oreo Shake</span><span class="dots"></span><span class="pr">400</span></div>
+    <div class="item"><span class="nm">Protein Shake</span><span class="dots"></span><span class="pr">400</span></div>
+
+    <h3>Tea &amp; Coffee</h3>
+    <div class="item"><span class="nm">Special Tea</span><span class="dots"></span><span class="pr">200</span></div>
+    <div class="item"><span class="nm">Cappuccino Coffee</span><span class="dots"></span><span class="pr">250</span></div>
+
+    <h3>Drinks</h3>
+    <div class="item"><span class="nm">Tin Pack</span><span class="dots"></span><span class="pr">130</span></div>
+    <div class="item"><span class="nm">Reg. Drink</span><span class="dots"></span><span class="pr">100</span></div>
+    <div class="item"><span class="nm">Mineral Water</span><span class="dots"></span><span class="pr"><small>—</small></span></div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer class="branches" id="contact">
+    <h2>Visit Us / Home Delivery</h2>
+    <div class="branch">
+      <h3>Khanpur Branch</h3>
+      <p>Link Road, Model Town B, Khanpur</p>
+      <div class="phones">
+        <a href="tel:+92685575255">068-5575255</a>
+        <a href="tel:+923345575255">0334-5575255</a>
+        <a href="tel:+923009670411">0300-9670411</a>
+      </div>
+    </div>
+    <div class="branch">
+      <h3>Rahim Yar Khan Branch</h3>
+      <p>Bypass Road, Rahim Yar Khan</p>
+    </div>
+    <p class="fine">Foodies Café — Eat Fresh &amp; Healthy · Pizza is our Specialty · All prices in PKR</p>
+  </footer>
+
+</div>
+
+<div class="callbar">
+  <div class="in">
+    <a class="call" href="tel:+923345575255">📞 Call to Order</a>
+    <a class="wa" href="https://wa.me/923345575255?text=Assalam-o-Alaikum!%20Foodies%20Caf%C3%A9%20se%20order%20karna%20hai.">WhatsApp</a>
+  </div>
+</div>
+
+<script>
+if (typeof document !== "undefined") {
+  var links = document.querySelectorAll("nav.cats a");
+  var secs = [];
+  links.forEach(function(a){
+    var el = document.querySelector(a.getAttribute("href"));
+    if (el) secs.push({a:a, el:el});
+  });
+  function onScroll(){
+    var y = window.scrollY + 120, cur = secs[0];
+    secs.forEach(function(s){ if (s.el.offsetTop <= y) cur = s; });
+    links.forEach(function(a){ a.classList.remove("active"); });
+    if (cur) cur.a.classList.add("active");
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+}
+</script>
+</body>
+</html>
